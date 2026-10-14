@@ -8,6 +8,7 @@ import { RunSummary } from './RunSummary'
 import { TaskContractPanel } from './TaskContractPanel'
 import { UsagePanel } from './UsagePanel'
 import { TaskModeSelector } from './TaskModeSelector'
+import { RoutePreview } from './RoutePreview'
 
 export function StudioWorkspace() {
   const planner = useStromaStore((state) => state.planner)
@@ -33,6 +34,7 @@ export function StudioWorkspace() {
         </div>
         <TaskModeSelector value={taskMode} onChange={setTaskMode} />
         <PlannerSelector value={planner} onChange={setPlanner} />
+        <RoutePreview plannerId={planner} executorId={executor} />
         <PromptComposer value={prompt} onChange={setPrompt} onSubmit={start} disabled={stage !== 'idle' && stage !== 'complete'} />
         <RunSummary stage={stage} onReset={resetRun} />
         <UsagePanel />
