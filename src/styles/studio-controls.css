@@ -5,6 +5,10 @@
 .studio-workspace__intro h2 { max-width: 700px; margin-top: 14px; font: 400 clamp(46px, 5vw, 76px)/.94 var(--font-display); letter-spacing: -.045em; }
 .studio-workspace__intro h2 em { color: var(--signal); font-weight: 400; }
 .studio-workspace__intro p { max-width: 510px; margin-top: 18px; color: var(--muted-dark); font-size: 12px; }
+.task-mode { display: inline-grid; grid-template-columns: repeat(3, auto); margin-top: 30px; padding: 3px; border: 1px solid var(--line-dark); }
+.task-mode button { min-width: 128px; display: flex; flex-direction: column; padding: 8px 10px; color: var(--muted-dark); text-align: left; }
+.task-mode button.is-selected { color: var(--signal-ink); background: var(--signal); }
+.task-mode strong { font-size: 9px; }.task-mode small { color: inherit; opacity: .65; font-size: 7px; }
 .planner-selector { margin: 48px 0 20px; padding: 0; border: 0; }
 .planner-selector legend { margin-bottom: 12px; }
 .planner-selector__options { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line-dark); }
