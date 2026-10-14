@@ -18,3 +18,11 @@ npm run build
 ```
 
 The current implementation is a front-end product prototype. Provider connections and run data are intentionally simulated until backend credentials and account integrations are configured.
+
+## Product standards
+
+- [Design direction](./DESIGN.md)
+- [Research rationale](./docs/RESEARCH.md)
+- [Accessibility contract](./docs/ACCESSIBILITY.md)
+- [Security boundary](./docs/SECURITY.md)
+- [Release quality plan](./docs/QA.md)
