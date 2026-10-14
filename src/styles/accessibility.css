@@ -1,0 +1,11 @@
+@media (forced-colors: active) {
+  :root { --signal: Highlight; --signal-ink: HighlightText; }
+  .hero__visual, .studio-shell__frame, .prompt-composer, .executor, .contract-panel { forced-color-adjust: auto; }
+  .relay-scene, .pointer-follower, .hero__grid { display: none; }
+  button, a, input, textarea { border-color: ButtonText; }
+}
+
+@media (prefers-contrast: more) {
+  :root { --muted-dark: #bfc0b7; --line-dark: rgba(255,255,255,.42); --line-darker: rgba(255,255,255,.26); }
+  .method, .evidence { --muted-light: #3e3f39; --line-light: rgba(0,0,0,.42); }
+}
