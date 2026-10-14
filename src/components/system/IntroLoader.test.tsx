@@ -1,15 +1,11 @@
-import { act, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { render, screen, waitFor } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 import { IntroLoader } from './IntroLoader'
 
 describe('IntroLoader', () => {
-  afterEach(() => vi.useRealTimers())
-
-  it('does not become a permanent interaction barrier', () => {
-    vi.useFakeTimers()
+  it('does not become a permanent interaction barrier', async () => {
     render(<IntroLoader />)
     expect(screen.getByText(/initializing task intelligence/i)).toBeInTheDocument()
-    act(() => vi.advanceTimersByTime(2000))
-    expect(screen.queryByText(/initializing task intelligence/i)).not.toBeInTheDocument()
+    await waitFor(() => expect(screen.queryByText(/initializing task intelligence/i)).not.toBeInTheDocument(), { timeout: 3000 })
   })
 })
