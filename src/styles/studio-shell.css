@@ -1,0 +1,20 @@
+.studio-shell { padding: 112px max(24px, calc((100% - 1500px)/2)); background: #20211d; }
+.studio-shell__frame { min-height: 960px; display: grid; grid-template-columns: 68px 1fr; overflow: hidden; color: var(--paper); background: var(--ink); border: 1px solid rgba(240,240,232,.22); box-shadow: 0 50px 120px rgba(0,0,0,.35); }
+.studio-rail { min-height: 100%; display: flex; flex-direction: column; align-items: center; padding: 18px 10px; border-right: 1px solid var(--line-dark); }
+.studio-rail .wordmark { margin-bottom: 58px; }
+.studio-rail nav { display: flex; flex-direction: column; gap: 9px; }
+.studio-rail button { position: relative; width: 43px; height: 43px; display: grid; color: var(--muted-dark); place-items: center; }
+.studio-rail button span { position: absolute; left: 51px; z-index: 10; display: none; padding: 6px 8px; color: var(--paper); background: var(--ink-soft); border: 1px solid var(--line-dark); font: 10px var(--font-mono); white-space: nowrap; }
+.studio-rail button:hover span { display: block; }
+.studio-rail button.is-active { color: var(--signal-ink); background: var(--signal); clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%); }
+.studio-rail__settings { margin-top: auto; }
+.studio-shell__body { min-width: 0; }
+.studio-topbar { height: 66px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px 0 24px; border-bottom: 1px solid var(--line-dark); }
+.studio-topbar > div { display: flex; align-items: center; gap: 15px; }
+.studio-topbar__title { font-weight: 600; }
+.studio-topbar__project { color: var(--muted-dark); font: 9px var(--font-mono); letter-spacing: .05em; text-transform: uppercase; }
+.studio-topbar__actions > span { padding-right: 15px; border-right: 1px solid var(--line-dark); }
+.studio-topbar__privacy { display: inline-flex; align-items: center; gap: 7px; color: var(--muted-dark); font-size: 10px; }
+.studio-topbar button { color: var(--muted-dark); }
+.studio-topbar__command { min-height: 34px; display: flex; align-items: center; gap: 8px; padding: 0 8px; border: 1px solid var(--line-dark); font-size: 10px; }
+.studio-topbar__command kbd { padding-left: 7px; color: #62645d; border-left: 1px solid var(--line-dark); font: 9px var(--font-mono); }
