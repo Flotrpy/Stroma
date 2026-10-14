@@ -1,0 +1,34 @@
+.studio-workspace { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(330px, .75fr); }
+.studio-workspace__main { min-width: 0; padding: 56px clamp(24px, 4vw, 68px) 68px; }
+.studio-workspace__side { border-left: 1px solid var(--line-dark); background: #0e0f0d; }
+.studio-workspace__intro > span, .planner-selector legend, .executor-list__heading > div > span, .contract-panel__heading > span, .usage-panel > header > span, .connection-panel__label { color: var(--muted-dark); font: 9px var(--font-mono); letter-spacing: .11em; text-transform: uppercase; }
+.studio-workspace__intro h2 { max-width: 700px; margin-top: 14px; font: 400 clamp(46px, 5vw, 76px)/.94 var(--font-display); letter-spacing: -.045em; }
+.studio-workspace__intro h2 em { color: var(--signal); font-weight: 400; }
+.studio-workspace__intro p { max-width: 510px; margin-top: 18px; color: var(--muted-dark); font-size: 12px; }
+.planner-selector { margin: 48px 0 20px; padding: 0; border: 0; }
+.planner-selector legend { margin-bottom: 12px; }
+.planner-selector__options { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line-dark); }
+.planner-selector__options button { min-width: 0; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 11px; padding: 14px; color: var(--muted-dark); text-align: left; border-right: 1px solid var(--line-dark); }
+.planner-selector__options button:last-child { border: 0; }
+.planner-selector__options button.is-selected { color: var(--paper); background: var(--ink-soft); box-shadow: inset 0 -2px var(--signal); }
+.planner-selector__logo { width: 27px; height: 27px; display: grid; place-items: center; color: var(--ink); background: var(--paper); font: 600 11px var(--font-ui); }
+.planner-selector__logo--claude { background: #d5946e; }
+.planner-selector__logo--none { color: var(--paper); background: transparent; border: 1px solid var(--line-dark); }
+.planner-selector__copy { min-width: 0; display: flex; flex-direction: column; }
+.planner-selector__copy strong { color: inherit; font-size: 11px; }
+.planner-selector__copy small { overflow: hidden; color: var(--muted-dark); font: 8px var(--font-mono); text-overflow: ellipsis; white-space: nowrap; }
+.prompt-composer { border: 1px solid var(--line-dark); background: #10110e; }
+.prompt-composer:focus-within { border-color: rgba(215,255,100,.52); }
+.prompt-composer__utility { display: flex; justify-content: space-between; padding: 11px 14px; color: var(--muted-dark); border-bottom: 1px solid var(--line-darker); font: 8px var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
+.prompt-composer textarea { width: 100%; min-height: 134px; padding: 18px; color: var(--paper); background: transparent; border: 0; outline: 0; font: 400 20px/1.45 var(--font-display); }
+.prompt-composer textarea::placeholder { color: #5d5f57; }
+.prompt-composer__examples { display: flex; align-items: center; gap: 8px; padding: 0 14px 12px; overflow: hidden; }
+.prompt-composer__examples > span { color: var(--muted-dark); font: 8px var(--font-mono); text-transform: uppercase; }
+.prompt-composer__examples button { overflow: hidden; padding: 5px 8px; color: var(--muted-dark); border: 1px solid var(--line-darker); font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.prompt-composer__examples button:hover { color: var(--paper); border-color: var(--line-dark); }
+.prompt-composer__toolbar { min-height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px 0 14px; border-top: 1px solid var(--line-darker); }
+.prompt-composer__toolbar > div { display: flex; align-items: center; gap: 9px; }
+.prompt-composer__toolbar button { color: var(--muted-dark); }
+.prompt-composer__toolbar kbd { color: #62645d; font: 9px var(--font-mono); }
+.prompt-composer__submit { width: 34px; height: 34px; display: grid; place-items: center; color: var(--signal-ink)!important; background: var(--signal); }
+.prompt-composer__submit:disabled { color: var(--muted-dark)!important; background: var(--ink-soft); cursor: not-allowed; }
