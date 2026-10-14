@@ -6,6 +6,7 @@ interface CommandPaletteProps {
   open: boolean
   onClose: () => void
   onNewTask: () => void
+  onNavigate: (section: string) => void
 }
 
 const commands = [
@@ -15,7 +16,7 @@ const commands = [
   { label: 'Toggle privacy mode', hint: 'P', action: 'privacy' },
 ]
 
-export function CommandPalette({ open, onClose, onNewTask }: CommandPaletteProps) {
+export function CommandPalette({ open, onClose, onNewTask, onNavigate }: CommandPaletteProps) {
   const [query, setQuery] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -53,6 +54,9 @@ export function CommandPalette({ open, onClose, onNewTask }: CommandPaletteProps
                   key={command.action}
                   onClick={() => {
                     if (command.action === 'new') onNewTask()
+                    if (command.action === 'connections') onNavigate('connections')
+                    if (command.action === 'ledger') onNavigate('ledger')
+                    if (command.action === 'privacy') onNavigate('settings')
                     onClose()
                   }}
                 >
