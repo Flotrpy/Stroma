@@ -11,5 +11,14 @@ export default defineConfig({
   build: {
     target: 'es2022',
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-core': ['react', 'react-dom', 'zustand'],
+          'motion': ['framer-motion'],
+          'three-core': ['three', '@react-three/fiber', '@react-three/drei'],
+        },
+      },
+    },
   },
 })
