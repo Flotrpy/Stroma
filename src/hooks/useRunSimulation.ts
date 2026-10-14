@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react'
+import { demoContract } from '../data/demo'
 import { useStromaStore } from '../store/useStromaStore'
 import type { RunStage } from '../types'
 
@@ -22,8 +23,7 @@ export function useRunSimulation() {
 
   const start = useCallback(() => {
     clear()
-    const { demoContract } = import('../data/demo')
-    void demoContract.then(({ demoContract: contract }) => setContract(contract))
+    setContract(demoContract)
 
     route.forEach(({ stage, delay }) => {
       timers.current.push(window.setTimeout(() => setStage(stage), delay))
