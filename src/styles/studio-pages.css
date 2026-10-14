@@ -75,6 +75,7 @@
 .settings-page__list label > i { position: relative; width: 36px; height: 20px; border: 1px solid var(--line-dark); border-radius: 20px; }
 .settings-page__list label > i::after { position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted-dark); content: ''; transition: transform .2s, background .2s; }
 .settings-page__list input:checked + i { border-color: var(--signal); }.settings-page__list input:checked + i::after { background: var(--signal); transform: translateX(16px); }
+.settings-page__list label:focus-within { outline: 2px solid var(--signal); outline-offset: 3px; }
 .settings-page__security { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; margin-top: 38px; padding: 20px; border: 1px solid rgba(215,255,100,.3); background: rgba(215,255,100,.04); }
 .settings-page__security > svg { color: var(--signal); }.settings-page__security h3 { font-size: 11px; }.settings-page__security p { max-width: 680px; color: var(--muted-dark); font-size: 8px; }.settings-page__security button { color: var(--signal); font-size: 9px; }
 
