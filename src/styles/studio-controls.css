@@ -21,6 +21,10 @@
 .planner-selector__copy { min-width: 0; display: flex; flex-direction: column; }
 .planner-selector__copy strong { color: inherit; font-size: 11px; }
 .planner-selector__copy small { overflow: hidden; color: var(--muted-dark); font: 8px var(--font-mono); text-overflow: ellipsis; white-space: nowrap; }
+.route-preview { min-height: 70px; display: grid; grid-template-columns: 1fr auto 1fr 1.4fr; gap: 14px; align-items: center; margin-bottom: 12px; padding: 11px 14px; border: 1px solid var(--line-dark); background: rgba(215,255,100,.025); }
+.route-preview__model { display: flex; flex-direction: column; }.route-preview__model small { color: var(--muted-dark); font: 7px var(--font-mono); text-transform: uppercase; }.route-preview__model strong { font-size: 10px; }.route-preview__model span { color: var(--muted-dark); font-size: 8px; }
+.route-preview__arrow { color: var(--signal); }
+.route-preview__reasons { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; }.route-preview__reasons span { display: flex; align-items: center; gap: 3px; padding: 3px 5px; color: var(--muted-dark); border: 1px solid var(--line-darker); font-size: 7px; }
 .prompt-composer { border: 1px solid var(--line-dark); background: #10110e; }
 .prompt-composer:focus-within { border-color: rgba(215,255,100,.52); }
 .prompt-composer__utility { display: flex; justify-content: space-between; padding: 11px 14px; color: var(--muted-dark); border-bottom: 1px solid var(--line-darker); font: 8px var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
