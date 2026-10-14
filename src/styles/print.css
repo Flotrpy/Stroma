@@ -1,0 +1,8 @@
+@media print {
+  .site-header, .mobile-menu, .intro-loader, .scroll-progress, .pointer-follower, .marquee, .hero__visual, .studio-rail, .studio-topbar, .footer { display: none!important; }
+  body, .hero, .method, .studio-shell, .evidence, .manifesto { color: #000!important; background: #fff!important; }
+  .hero { min-height: auto; display: block; padding: 40px 0; }
+  .hero h1 { color: #000; font-size: 64px; }
+  .studio-shell { padding: 20px 0; }.studio-shell__frame { border: 1px solid #000; box-shadow: none; }
+  * { animation: none!important; transition: none!important; }
+}
