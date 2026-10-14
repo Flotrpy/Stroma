@@ -17,13 +17,16 @@ export function StudioRail({ active, onChange }: StudioRailProps) {
   return (
     <aside className="studio-rail">
       <Wordmark compact />
-      <nav aria-label="Studio navigation">
+      <nav aria-label="Studio navigation" role="tablist" aria-orientation="vertical">
         {items.map(({ id, label, icon: Icon }) => (
           <button
             key={id}
             className={active === id ? 'is-active' : ''}
             onClick={() => onChange(id)}
             aria-label={label}
+            role="tab"
+            aria-controls="studio-view"
+            aria-selected={active === id}
             aria-current={active === id ? 'page' : undefined}
           >
             <Icon size={19} strokeWidth={1.6} aria-hidden="true" />
@@ -31,7 +34,7 @@ export function StudioRail({ active, onChange }: StudioRailProps) {
           </button>
         ))}
       </nav>
-      <button className={active === 'settings' ? 'studio-rail__settings is-active' : 'studio-rail__settings'} onClick={() => onChange('settings')} aria-label="Settings" aria-current={active === 'settings' ? 'page' : undefined}>
+      <button className={active === 'settings' ? 'studio-rail__settings is-active' : 'studio-rail__settings'} onClick={() => onChange('settings')} aria-label="Settings" role="tab" aria-controls="studio-view" aria-selected={active === 'settings'} aria-current={active === 'settings' ? 'page' : undefined}>
         <Settings2 size={19} strokeWidth={1.6} aria-hidden="true" />
         <span>Settings</span>
       </button>
