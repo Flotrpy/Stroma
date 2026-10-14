@@ -9,6 +9,7 @@ import { MobileMenu } from './components/navigation/MobileMenu'
 import { CommandPalette } from './components/navigation/CommandPalette'
 import { StudioShell } from './components/studio/StudioShell'
 import { Marquee } from './components/ui/Marquee'
+import { SkipLink } from './components/ui/SkipLink'
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts'
 import { useStromaStore } from './store/useStromaStore'
 
@@ -29,14 +30,17 @@ export default function App() {
 
   return (
     <div className="app">
+      <SkipLink />
       <Header onOpenStudio={newTask} onOpenMenu={() => setMenuOpen(true)} />
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
-      <Hero onEnterStudio={enterStudio} />
-      <Marquee />
-      <Method />
-      <StudioShell />
-      <Evidence />
-      <Manifesto />
+      <main id="main-content">
+        <Hero onEnterStudio={enterStudio} />
+        <Marquee />
+        <Method />
+        <StudioShell />
+        <Evidence />
+        <Manifesto />
+      </main>
       <Footer />
       <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} onNewTask={newTask} />
     </div>
