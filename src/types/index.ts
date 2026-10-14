@@ -2,6 +2,8 @@ export type PlannerId = 'codex' | 'claude' | 'none'
 
 export type ExecutorId = 'gemini' | 'groq' | 'openrouter' | 'local'
 
+export type TaskMode = 'auto' | 'architect' | 'direct'
+
 export type RunStage = 'idle' | 'defining' | 'routing' | 'executing' | 'verifying' | 'complete'
 
 export interface Planner {
