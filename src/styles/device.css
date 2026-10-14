@@ -1,0 +1,15 @@
+@supports (padding: max(0px)) {
+  .site-header { padding-right: env(safe-area-inset-right); padding-left: env(safe-area-inset-left); }
+  .mobile-menu { padding-right: max(24px, env(safe-area-inset-right)); padding-bottom: max(32px, env(safe-area-inset-bottom)); padding-left: max(24px, env(safe-area-inset-left)); }
+}
+
+@media (hover: none) {
+  .site-header__nav a::after { display: none; }
+  button.evidence__row:hover, .executor:hover { background: transparent; }
+}
+
+@media (max-width: 420px) {
+  .task-mode { width: 100%; grid-template-columns: 1fr; }.task-mode button { min-width: 0; }
+  .route-preview { grid-template-columns: 1fr auto 1fr; }.route-preview__reasons { grid-column: 1 / -1; justify-content: flex-start; }
+  .budget-control { align-items: flex-start; flex-direction: column; gap: 8px; padding: 10px 12px; }.budget-control label { width: 100%; justify-content: space-between; }.budget-control input { flex: 1; }
+}
