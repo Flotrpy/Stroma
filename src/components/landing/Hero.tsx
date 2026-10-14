@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Play } from 'lucide-react'
+import { lazy, Suspense } from 'react'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 import { ArrowButton } from '../ui/ArrowButton'
 import { SectionLabel } from '../ui/SectionLabel'
-import { RelayScene } from '../visual/RelayScene'
+import { SceneFallback } from '../visual/SceneFallback'
+
+const RelayScene = lazy(() => import('../visual/RelayScene').then((module) => ({ default: module.RelayScene })))
 
 interface HeroProps {
   onEnterStudio: () => void
@@ -53,7 +56,9 @@ export function Hero({ onEnterStudio }: HeroProps) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.12, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
       >
-        <RelayScene reducedMotion={reducedMotion} />
+        <Suspense fallback={<SceneFallback />}>
+          <RelayScene reducedMotion={reducedMotion} />
+        </Suspense>
         <div className="hero__visual-meta hero__visual-meta--top">
           <span>Relay core</span>
           <span>R.01</span>
