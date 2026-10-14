@@ -1,0 +1,23 @@
+:root {
+  --ink: #0b0c0b;
+  --ink-raised: #121310;
+  --ink-soft: #191a16;
+  --paper: #f0f0e8;
+  --paper-warm: #e7e7dc;
+  --paper-dim: #c1c2b8;
+  --signal: #d7ff64;
+  --signal-ink: #14190a;
+  --line-dark: rgba(240, 240, 232, 0.16);
+  --line-darker: rgba(240, 240, 232, 0.09);
+  --line-light: rgba(11, 12, 11, 0.18);
+  --muted-dark: #85877e;
+  --muted-light: #616259;
+  --danger: #ff715b;
+  --warning: #eacb64;
+  --font-display: 'Instrument Serif', 'Iowan Old Style', 'Baskerville', serif;
+  --font-ui: 'Manrope', 'Avenir Next', 'Helvetica Neue', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --shell: min(100% - 64px, 1440px);
+}
