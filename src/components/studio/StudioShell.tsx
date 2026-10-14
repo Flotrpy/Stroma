@@ -24,7 +24,7 @@ export function StudioShell() {
     <section className="studio-shell" id="studio">
       <div className="studio-shell__frame">
         <StudioRail active={activeSection} onChange={setActiveSection} />
-        <div className="studio-shell__body">
+        <div className="studio-shell__body" id="studio-view" role="tabpanel" aria-label={`${activeSection} workspace`}>
           <StudioTopbar onCommand={() => setCommandOpen(true)} />
           {content}
         </div>
