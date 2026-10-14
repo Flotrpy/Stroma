@@ -19,12 +19,17 @@ export default function App() {
   const setCommandOpen = useStromaStore((state) => state.setCommandOpen)
   const setPrompt = useStromaStore((state) => state.setPrompt)
   const resetRun = useStromaStore((state) => state.resetRun)
+  const setActiveSection = useStromaStore((state) => state.setActiveSection)
   useKeyboardShortcuts()
 
   const enterStudio = () => document.querySelector('#studio')?.scrollIntoView({ behavior: 'smooth' })
   const newTask = () => {
     setPrompt('')
     resetRun()
+    enterStudio()
+  }
+  const navigateStudio = (section: string) => {
+    setActiveSection(section)
     enterStudio()
   }
 
@@ -42,7 +47,7 @@ export default function App() {
         <Manifesto />
       </main>
       <Footer />
-      <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} onNewTask={newTask} />
+      <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} onNewTask={newTask} onNavigate={navigateStudio} />
     </div>
   )
 }
