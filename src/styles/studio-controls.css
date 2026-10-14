@@ -25,6 +25,9 @@
 .route-preview__model { display: flex; flex-direction: column; }.route-preview__model small { color: var(--muted-dark); font: 7px var(--font-mono); text-transform: uppercase; }.route-preview__model strong { font-size: 10px; }.route-preview__model span { color: var(--muted-dark); font-size: 8px; }
 .route-preview__arrow { color: var(--signal); }
 .route-preview__reasons { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; }.route-preview__reasons span { display: flex; align-items: center; gap: 3px; padding: 3px 5px; color: var(--muted-dark); border: 1px solid var(--line-darker); font-size: 7px; }
+.budget-control { min-height: 42px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding: 0 12px; border: 1px solid var(--line-darker); }
+.budget-control > div, .budget-control label { display: flex; align-items: center; gap: 7px; color: var(--muted-dark); font-size: 8px; }.budget-control > div svg { color: var(--signal); }
+.budget-control label > span { min-width: 52px; color: var(--paper); text-align: right; }.budget-control input { width: 110px; accent-color: var(--signal); }
 .prompt-composer { border: 1px solid var(--line-dark); background: #10110e; }
 .prompt-composer:focus-within { border-color: rgba(215,255,100,.52); }
 .prompt-composer__utility { display: flex; justify-content: space-between; padding: 11px 14px; color: var(--muted-dark); border-bottom: 1px solid var(--line-darker); font: 8px var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
