@@ -1,0 +1,11 @@
+.intro-loader { position: fixed; z-index: 900; inset: 0; display: grid; grid-template-columns: 1fr auto; grid-template-rows: 1fr auto; align-items: start; padding: 32px; color: var(--signal-ink); background: var(--signal); }
+.intro-loader__signal { position: absolute; top: 50%; left: 50%; width: min(46vw, 520px); height: 1px; overflow: hidden; background: rgba(11,12,11,.24); transform: translate(-50%,-50%); }
+.intro-loader__signal span { display: block; width: 100%; height: 100%; background: var(--ink); transform-origin: left; animation: loader-signal 1s var(--ease-out) forwards; }
+.intro-loader__meta { grid-column: 1 / -1; display: flex; justify-content: space-between; padding-top: 13px; border-top: 1px solid rgba(11,12,11,.28); font: 9px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.scroll-progress { position: fixed; z-index: 80; top: 0; right: 0; left: 0; height: 2px; background: var(--signal); transform-origin: left; }
+.pointer-follower { position: fixed; z-index: 899; top: 0; left: 0; width: 10px; height: 10px; pointer-events: none; border-radius: 50%; background: var(--signal); mix-blend-mode: difference; }
+
+@keyframes loader-signal { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@media (max-width: 560px) { .intro-loader { padding: 20px; } }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) { .pointer-follower { display: none; } }
