@@ -31,7 +31,7 @@ export function StudioRail({ active, onChange }: StudioRailProps) {
           </button>
         ))}
       </nav>
-      <button className="studio-rail__settings" aria-label="Settings">
+      <button className={active === 'settings' ? 'studio-rail__settings is-active' : 'studio-rail__settings'} onClick={() => onChange('settings')} aria-label="Settings" aria-current={active === 'settings' ? 'page' : undefined}>
         <Settings2 size={19} strokeWidth={1.6} aria-hidden="true" />
         <span>Settings</span>
       </button>
