@@ -1,0 +1,43 @@
+import { useStromaStore } from '../../store/useStromaStore'
+import { useRunSimulation } from '../../hooks/useRunSimulation'
+import { ConnectionPanel } from './ConnectionPanel'
+import { ExecutorList } from './ExecutorList'
+import { PlannerSelector } from './PlannerSelector'
+import { PromptComposer } from './PromptComposer'
+import { RunSummary } from './RunSummary'
+import { TaskContractPanel } from './TaskContractPanel'
+import { UsagePanel } from './UsagePanel'
+
+export function StudioWorkspace() {
+  const planner = useStromaStore((state) => state.planner)
+  const executor = useStromaStore((state) => state.executor)
+  const prompt = useStromaStore((state) => state.prompt)
+  const stage = useStromaStore((state) => state.stage)
+  const contract = useStromaStore((state) => state.contract)
+  const setPlanner = useStromaStore((state) => state.setPlanner)
+  const setExecutor = useStromaStore((state) => state.setExecutor)
+  const setPrompt = useStromaStore((state) => state.setPrompt)
+  const resetRun = useStromaStore((state) => state.resetRun)
+  const { start } = useRunSimulation()
+
+  return (
+    <div className="studio-workspace">
+      <main className="studio-workspace__main">
+        <div className="studio-workspace__intro">
+          <span>New task</span>
+          <h2>What should be <em>true</em> when the work is done?</h2>
+          <p>Describe the result. Stroma will define the contract before choosing an executor.</p>
+        </div>
+        <PlannerSelector value={planner} onChange={setPlanner} />
+        <PromptComposer value={prompt} onChange={setPrompt} onSubmit={start} disabled={stage !== 'idle' && stage !== 'complete'} />
+        <RunSummary stage={stage} onReset={resetRun} />
+        <UsagePanel />
+        <ConnectionPanel />
+      </main>
+      <div className="studio-workspace__side">
+        <ExecutorList value={executor} onChange={setExecutor} />
+        <TaskContractPanel contract={contract} />
+      </div>
+    </div>
+  )
+}
