@@ -1,0 +1,10 @@
+.manifesto { display: grid; grid-template-columns: 1.15fr .85fr; gap: 9vw; padding: 150px max(32px, calc((100% - 1376px)/2)); background: var(--signal); color: var(--signal-ink); }
+.manifesto__statement { align-self: start; position: sticky; top: 60px; }
+.manifesto__statement > span { font: 9px var(--font-mono); text-transform: uppercase; letter-spacing: .11em; }
+.manifesto__statement h2 { max-width: 840px; margin-top: 26px; font: 400 clamp(60px, 7.5vw, 112px)/.88 var(--font-display); letter-spacing: -.055em; }
+.manifesto__principles { border-top: 1px solid rgba(11,12,11,.32); }
+.manifesto__principles article { position: relative; display: grid; grid-template-columns: 48px 1fr; gap: 10px; padding: 28px 32px 30px 0; border-bottom: 1px solid rgba(11,12,11,.32); }
+.manifesto__principles article > span { font: 9px var(--font-mono); }
+.manifesto__principles h3 { font: 400 31px/1 var(--font-display); }
+.manifesto__principles p { grid-column: 2; max-width: 360px; margin-top: 5px; color: rgba(11,12,11,.65); font-size: 11px; line-height: 1.6; }
+.manifesto__principles svg { position: absolute; right: 0; top: 28px; }
