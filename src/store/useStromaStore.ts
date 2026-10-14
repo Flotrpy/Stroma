@@ -1,11 +1,12 @@
 import { create } from 'zustand'
 import { demoContract } from '../data/demo'
-import type { ExecutorId, PlannerId, RunStage, TaskContract } from '../types'
+import type { ExecutorId, PlannerId, RunStage, TaskContract, TaskMode } from '../types'
 
 interface StromaState {
   activeSection: string
   planner: PlannerId
   executor: ExecutorId
+  taskMode: TaskMode
   prompt: string
   stage: RunStage
   contract: TaskContract | null
@@ -14,6 +15,7 @@ interface StromaState {
   setActiveSection: (section: string) => void
   setPlanner: (planner: PlannerId) => void
   setExecutor: (executor: ExecutorId) => void
+  setTaskMode: (taskMode: TaskMode) => void
   setPrompt: (prompt: string) => void
   setStage: (stage: RunStage) => void
   setContract: (contract: TaskContract | null) => void
@@ -27,6 +29,7 @@ export const useStromaStore = create<StromaState>((set) => ({
   activeSection: 'studio',
   planner: 'codex',
   executor: 'groq',
+  taskMode: 'auto',
   prompt: '',
   stage: 'idle',
   contract: null,
@@ -35,6 +38,7 @@ export const useStromaStore = create<StromaState>((set) => ({
   setActiveSection: (activeSection) => set({ activeSection }),
   setPlanner: (planner) => set({ planner }),
   setExecutor: (executor) => set({ executor }),
+  setTaskMode: (taskMode) => set({ taskMode }),
   setPrompt: (prompt) => set({ prompt }),
   setStage: (stage) => set({ stage }),
   setContract: (contract) => set({ contract }),
