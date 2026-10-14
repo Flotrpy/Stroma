@@ -15,6 +15,7 @@ import { useStromaStore } from './store/useStromaStore'
 import { IntroLoader } from './components/system/IntroLoader'
 import { PointerFollower } from './components/system/PointerFollower'
 import { ScrollProgress } from './components/system/ScrollProgress'
+import { RunAnnouncer } from './components/system/RunAnnouncer'
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -41,6 +42,7 @@ export default function App() {
       <IntroLoader />
       <ScrollProgress />
       <PointerFollower />
+      <RunAnnouncer />
       <SkipLink />
       <Header onOpenStudio={newTask} onOpenMenu={() => setMenuOpen(true)} />
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
