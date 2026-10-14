@@ -12,6 +12,9 @@ import { Marquee } from './components/ui/Marquee'
 import { SkipLink } from './components/ui/SkipLink'
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts'
 import { useStromaStore } from './store/useStromaStore'
+import { IntroLoader } from './components/system/IntroLoader'
+import { PointerFollower } from './components/system/PointerFollower'
+import { ScrollProgress } from './components/system/ScrollProgress'
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -35,6 +38,9 @@ export default function App() {
 
   return (
     <div className="app">
+      <IntroLoader />
+      <ScrollProgress />
+      <PointerFollower />
       <SkipLink />
       <Header onOpenStudio={newTask} onOpenMenu={() => setMenuOpen(true)} />
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
