@@ -34,3 +34,14 @@
 .contract-panel__empty-mark::before { content: '{}'; transform: rotate(-45deg); }
 .contract-panel--empty h3, .contract-panel--empty p { max-width: 250px; margin-right: auto; margin-left: auto; text-align: center; }
 .contract-panel--empty p { margin-top: 10px; color: var(--muted-dark); font-size: 10px; }
+.review-panel { padding: 22px 18px 26px; border-top: 1px solid var(--line-dark); }
+.review-panel--empty p, .review-panel__clean { margin-top: 16px; color: var(--muted-dark); font-size: 10px; line-height: 1.6; }
+.review-panel__clean { display: flex; gap: 7px; color: var(--paper-dim); }
+.review-panel__clean svg { flex: 0 0 auto; margin-top: 2px; color: var(--signal); }
+.review-panel__finding { display: grid; gap: 8px; padding: 16px 0; border-bottom: 1px solid var(--line-darker); }
+.review-panel__finding strong { font-size: 11px; }
+.review-panel__finding p { display: grid; gap: 3px; color: var(--paper-dim); font-size: 10px; line-height: 1.55; }
+.review-panel__finding p small { color: var(--muted-dark); font: 8px var(--font-mono); text-transform: uppercase; letter-spacing: .1em; }
+.review-panel__state { display: flex; align-items: center; gap: 5px; font: 8px var(--font-mono); text-transform: uppercase; letter-spacing: .1em; }
+.review-panel__finding--fixed .review-panel__state { color: var(--signal); }
+.review-panel__finding--found .review-panel__state, .review-panel__finding--open .review-panel__state { color: var(--warning); }

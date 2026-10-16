@@ -8,5 +8,6 @@ describe('RoutePreview', () => {
     expect(screen.getByText('ChatGPT plan')).toBeInTheDocument()
     expect(screen.getByText('Free tier')).toBeInTheDocument()
     expect(screen.getByText(/review before run/i)).toBeInTheDocument()
+    expect(screen.getByText('Fixes mistakes')).toBeInTheDocument()
   })
 })

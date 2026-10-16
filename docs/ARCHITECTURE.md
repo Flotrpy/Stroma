@@ -7,8 +7,9 @@ The prototype separates presentation, domain data, state, and execution simulati
 - `components/system`: cross-application feedback and accessibility behavior
 - `components/visual`: isolated WebGL and route visualization
 - `data`: clearly labeled preview fixtures
+- `lib`: pure run logic, including the planner review-and-repair pass
 - `store`: small deterministic UI state
-- `hooks`: lifecycle, keyboard, and preference behavior
+- `hooks`: lifecycle, keyboard, preference behavior, and the run stage sequence
 - `styles`: token-led layers organized by interface responsibility
 
 The WebGL scene is loaded independently from the primary interface bundle. Core workflows remain legible while it loads and do not depend on the canvas.

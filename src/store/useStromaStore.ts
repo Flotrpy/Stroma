@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { demoContract } from '../data/demo'
-import type { ExecutorId, PlannerId, RunStage, TaskContract, TaskMode } from '../types'
+import type { ExecutorId, PlannerId, ReviewReport, RunStage, TaskContract, TaskMode } from '../types'
 
 interface StromaState {
   activeSection: string
@@ -10,6 +10,7 @@ interface StromaState {
   prompt: string
   stage: RunStage
   contract: TaskContract | null
+  review: ReviewReport | null
   commandOpen: boolean
   connectionOpen: boolean
   setActiveSection: (section: string) => void
@@ -19,6 +20,7 @@ interface StromaState {
   setPrompt: (prompt: string) => void
   setStage: (stage: RunStage) => void
   setContract: (contract: TaskContract | null) => void
+  setReview: (review: ReviewReport | null) => void
   setCommandOpen: (open: boolean) => void
   setConnectionOpen: (open: boolean) => void
   resetRun: () => void
@@ -33,6 +35,7 @@ export const useStromaStore = create<StromaState>((set) => ({
   prompt: '',
   stage: 'idle',
   contract: null,
+  review: null,
   commandOpen: false,
   connectionOpen: false,
   setActiveSection: (activeSection) => set({ activeSection }),
@@ -42,8 +45,9 @@ export const useStromaStore = create<StromaState>((set) => ({
   setPrompt: (prompt) => set({ prompt }),
   setStage: (stage) => set({ stage }),
   setContract: (contract) => set({ contract }),
+  setReview: (review) => set({ review }),
   setCommandOpen: (commandOpen) => set({ commandOpen }),
   setConnectionOpen: (connectionOpen) => set({ connectionOpen }),
-  resetRun: () => set({ stage: 'idle', contract: null }),
-  runDemo: () => set({ stage: 'defining', contract: demoContract }),
+  resetRun: () => set({ stage: 'idle', contract: null, review: null }),
+  runDemo: () => set({ stage: 'defining', contract: demoContract, review: null }),
 }))

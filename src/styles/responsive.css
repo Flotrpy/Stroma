@@ -71,7 +71,7 @@
   .planner-selector__options { grid-template-columns: 1fr; }
   .planner-selector__options button { border-right: 0; border-bottom: 1px solid var(--line-dark); }
   .prompt-composer__examples { display: none; }
-  .run-summary__receipt { grid-template-columns: 1fr 1fr 1fr; }
+  .run-summary__receipt { grid-template-columns: 1fr 1fr; }
   .run-summary__receipt button { grid-column: 1 / -1; margin-top: 8px; }
   .usage-panel__metrics { grid-template-columns: 1fr; }
   .usage-panel__metrics > div { min-height: 120px; border-right: 0; border-bottom: 1px solid var(--line-dark); }
