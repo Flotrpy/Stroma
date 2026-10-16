@@ -19,8 +19,8 @@ const steps = [
     index: '03',
     verb: 'Verify',
     title: 'Require evidence, not confidence.',
-    body: 'Tests, schemas, citations, and deterministic checks decide whether the result ships, retries, or returns for expert review.',
-    meta: 'Controlled escalation',
+    body: 'Acceptance checks run on the executor output, then the planner reviews the work and fixes any mistakes before the result ships.',
+    meta: 'Planner review and repair',
   },
 ]
 

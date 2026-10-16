@@ -4,7 +4,7 @@ export type ExecutorId = 'gemini' | 'groq' | 'openrouter' | 'local'
 
 export type TaskMode = 'auto' | 'architect' | 'direct'
 
-export type RunStage = 'idle' | 'defining' | 'routing' | 'executing' | 'verifying' | 'complete'
+export type RunStage = 'idle' | 'defining' | 'routing' | 'executing' | 'verifying' | 'reviewing' | 'repairing' | 'complete'
 
 export interface Planner {
   id: PlannerId
@@ -44,4 +44,32 @@ export interface LedgerItem {
   saved: string
   status: 'verified' | 'review' | 'failed'
   timestamp: string
+}
+
+export interface CheckResult {
+  test: string
+  passed: boolean
+  detail: string
+}
+
+export interface ExecutionResult {
+  executor: ExecutorId
+  summary: string
+  checks: CheckResult[]
+}
+
+export interface ReviewFinding {
+  check: string
+  issue: string
+  fix: string
+  resolved: boolean
+}
+
+export interface ReviewReport {
+  reviewer: string
+  outcome: 'verified' | 'repaired' | 'unreviewed'
+  findings: ReviewFinding[]
+  checksPassed: number
+  checksTotal: number
+  plannerCalls: number
 }

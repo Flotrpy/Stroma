@@ -6,6 +6,8 @@ const announcements = {
   routing: 'Selecting a capable executor.',
   executing: 'The executor is working.',
   verifying: 'Running acceptance checks.',
+  reviewing: 'The planner is reviewing the executor output.',
+  repairing: 'The planner is fixing review findings.',
   complete: 'The run completed and passed verification.',
 }
 

@@ -1,19 +1,23 @@
 import { useCallback, useEffect, useRef } from 'react'
-import { demoContract } from '../data/demo'
+import { demoContract, demoExecution, demoRepairs } from '../data/demo'
+import { reviewExecution } from '../lib/review'
 import { useStromaStore } from '../store/useStromaStore'
-import type { RunStage } from '../types'
+import type { ReviewReport, RunStage } from '../types'
 
-const route: Array<{ stage: RunStage; delay: number }> = [
-  { stage: 'defining', delay: 0 },
-  { stage: 'routing', delay: 850 },
-  { stage: 'executing', delay: 1850 },
-  { stage: 'verifying', delay: 3400 },
-  { stage: 'complete', delay: 4600 },
-]
+const STEP = 950
+
+/** Stages a run passes through. Review and repair only happen when a planner can do them. */
+export function runRoute(review: ReviewReport): RunStage[] {
+  const stages: RunStage[] = ['defining', 'routing', 'executing', 'verifying']
+  if (review.outcome !== 'unreviewed') stages.push('reviewing')
+  if (review.outcome === 'repaired') stages.push('repairing')
+  return [...stages, 'complete']
+}
 
 export function useRunSimulation() {
   const setStage = useStromaStore((state) => state.setStage)
   const setContract = useStromaStore((state) => state.setContract)
+  const setReview = useStromaStore((state) => state.setReview)
   const timers = useRef<number[]>([])
 
   const clear = useCallback(() => {
@@ -23,12 +27,21 @@ export function useRunSimulation() {
 
   const start = useCallback(() => {
     clear()
+    const planner = useStromaStore.getState().planner
+    const executor = useStromaStore.getState().executor
+    const review = reviewExecution(demoContract, { ...demoExecution, executor }, planner, (check) => demoRepairs[check] ?? `Planner repaired "${check}".`)
     setContract(demoContract)
+    setReview(null)
 
-    route.forEach(({ stage, delay }) => {
-      timers.current.push(window.setTimeout(() => setStage(stage), delay))
+    const stages = runRoute(review)
+    stages.forEach((stage, index) => {
+      timers.current.push(window.setTimeout(() => {
+        setStage(stage)
+        // Findings surface once the planner starts reviewing (or at the end, without a planner).
+        if (stage === 'reviewing' || stage === 'complete') setReview(review)
+      }, index * STEP))
     })
-  }, [clear, setContract, setStage])
+  }, [clear, setContract, setReview, setStage])
 
   useEffect(() => clear, [clear])
 

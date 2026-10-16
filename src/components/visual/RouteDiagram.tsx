@@ -6,6 +6,8 @@ const stages: Array<{ id: RunStage; label: string; index: string }> = [
   { id: 'routing', label: 'Route', index: '02' },
   { id: 'executing', label: 'Execute', index: '03' },
   { id: 'verifying', label: 'Verify', index: '04' },
+  { id: 'reviewing', label: 'Review', index: '05' },
+  { id: 'repairing', label: 'Repair', index: '06' },
 ]
 
 const stageIndex: Record<RunStage, number> = {
@@ -14,7 +16,9 @@ const stageIndex: Record<RunStage, number> = {
   routing: 1,
   executing: 2,
   verifying: 3,
-  complete: 4,
+  reviewing: 4,
+  repairing: 5,
+  complete: 6,
 }
 
 export function RouteDiagram({ stage }: { stage: RunStage }) {
@@ -23,7 +27,7 @@ export function RouteDiagram({ stage }: { stage: RunStage }) {
   return (
     <div className="route-diagram" aria-label={`Current run stage: ${stage}`}>
       <div className="route-diagram__line" aria-hidden="true">
-        <motion.span animate={{ scaleX: Math.max(0, current / 3) }} transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }} />
+        <motion.span animate={{ scaleX: Math.min(1, Math.max(0, current / (stages.length - 1))) }} transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }} />
       </div>
       {stages.map((item, index) => {
         const state = index < current ? 'done' : index === current ? 'active' : 'waiting'
