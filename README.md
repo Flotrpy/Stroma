@@ -1,6 +1,8 @@
 # Stroma
 
-**Think once. Run light.** Stroma is a local-first interface that splits AI work between two kinds of model:
+**Think once. Run light.** · [Live demo](https://flotrpy.github.io/Stroma/)
+
+Stroma is a local-first interface that splits AI work between two kinds of model:
 
 - **A frontier planner** from a paid subscription (Codex on a ChatGPT plan, or Claude via API key). It plans the task, then reviews and fixes the result.
 - **A low-cost executor**, often a free one (GPT-OSS 120B on Groq, Gemini Flash, OpenRouter's free router, or a model running on your own device). It does the actual work.

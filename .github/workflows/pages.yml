@@ -26,10 +26,9 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run test
+      # GitHub Pages serves the site from /<repo>/.
       - name: Build
-        run: npx vite build
-        env:
-          BASE_PATH: /${{ github.event.repository.name }}/
+        run: npx vite build --base=/${{ github.event.repository.name }}/
       - name: Serve index.html for unknown paths
         run: cp dist/index.html dist/404.html
       - uses: actions/configure-pages@v5
